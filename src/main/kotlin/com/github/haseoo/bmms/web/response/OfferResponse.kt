@@ -9,6 +9,6 @@ data class OfferResponse(
     val material: MaterialResponse,
     val price: BigDecimal,
     val unit: String,
-    val comments: String,
+    val comments: String?,
     val lastModification: LocalDateTime
 )
