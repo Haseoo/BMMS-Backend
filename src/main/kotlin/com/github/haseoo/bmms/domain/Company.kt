@@ -6,11 +6,10 @@ import javax.persistence.*
 data class Company(
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
-    @field:Column(nullable = false)
+    var id: Long?,
     var address: String,
-    var city: String,
-    var voivodeship: String,
+    var city: String?,
+    var voivodeship: String?,
     @field:OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.ALL], orphanRemoval = true)
     @field:JoinColumn(name = "COMPANY_ID")
     var contactData: List<ContactData>,

@@ -6,4 +6,6 @@ interface CompanyService {
 
     fun getAll(): Collection<Company>
 
+    fun getById(id: Long): Company
+
 }

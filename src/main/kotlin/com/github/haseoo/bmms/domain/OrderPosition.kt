@@ -6,7 +6,7 @@ import javax.persistence.*
 data class OrderPosition(
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
+    var id: Long?,
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "OFFER_ID")
     val offer: Offer,

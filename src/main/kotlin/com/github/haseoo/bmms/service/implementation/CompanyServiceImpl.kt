@@ -10,4 +10,7 @@ private class CompanyServiceImpl(
     private val companyRepository: CompanyRepositoryPort
 ) : CompanyService {
     override fun getAll(): Collection<Company> = companyRepository.findAll()
+    override fun getById(id: Long): Company {
+        TODO("Not yet implemented")
+    }
 }

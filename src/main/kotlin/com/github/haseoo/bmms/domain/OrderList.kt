@@ -7,10 +7,8 @@ import javax.persistence.*
 data class OrderList(
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
-    @field:Column(nullable = false)
+    var id: Long?,
     var name: String,
-    @field:Column(nullable = false)
     var lastModification: LocalDateTime,
     @field:OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.ALL], orphanRemoval = true)
     @field:JoinColumn(name = "ORDER_LIST_ID")

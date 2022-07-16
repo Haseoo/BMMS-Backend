@@ -6,8 +6,9 @@ import javax.persistence.*
 data class Material(
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
-    val specification: String,
+    var id: Long?,
+    var name: String,
+    var specification: String?,
     @field:OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true, mappedBy = "material")
     var offers: List<Offer>
 )

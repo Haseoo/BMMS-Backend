@@ -9,7 +9,7 @@ import javax.persistence.Id
 data class ContactData(
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
+    var id: Long?,
     var description: String?,
     var representativeNameAndSurname: String,
     var emailAddress: String?,
