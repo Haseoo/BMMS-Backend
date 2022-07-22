@@ -24,7 +24,7 @@ class MaterialController(
     )
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: Long) = ResponseEntity.ok(domainToResponse(materialService.findMaterialById(id)))
+    fun getById(@PathVariable id: Long) = ResponseEntity.ok(domainToResponse(materialService.getMaterialById(id)))
 
     @PutMapping("/{id}")
     fun update(@PathVariable id: Long, @RequestBody @Valid materialRequest: MaterialRequest): ResponseEntity<Void> {

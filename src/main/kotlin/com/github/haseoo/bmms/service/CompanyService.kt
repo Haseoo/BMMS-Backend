@@ -7,7 +7,7 @@ interface CompanyService {
 
     fun getAll(): Collection<Company>
 
-    fun getById(id: Long): Company
+    fun getCompanyById(id: Long): Company
 
     fun addCompany(company: Company): Company
 

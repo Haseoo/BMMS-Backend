@@ -6,7 +6,7 @@ interface MaterialService {
 
     fun findAllMaterials(): Collection<Material>
 
-    fun findMaterialById(id: Long): Material
+    fun getMaterialById(id: Long): Material
 
     fun addMaterial(material: Material): Material
 

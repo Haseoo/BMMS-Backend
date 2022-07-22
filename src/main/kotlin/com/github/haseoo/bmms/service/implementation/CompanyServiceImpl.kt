@@ -13,7 +13,8 @@ class CompanyServiceImpl(
     private val companyRepository: CompanyRepositoryPort
 ) : CompanyService {
     override fun getAll(): Collection<Company> = companyRepository.findAll()
-    override fun getById(id: Long): Company = companyRepository.findById(id) ?: throw NotFoundException("Company", id)
+    override fun getCompanyById(id: Long): Company =
+        companyRepository.findById(id) ?: throw NotFoundException("Company", id)
 
     @Transactional
     override fun addCompany(company: Company) = companyRepository.save(company)
@@ -25,7 +26,7 @@ class CompanyServiceImpl(
         contactDataToUpdate: List<ContactData>,
         contactDataIdToDelete: List<Long>
     ) {
-        val existingCompany = getById(company.id!!)
+        val existingCompany = getCompanyById(company.id!!)
         existingCompany.name = company.name
         existingCompany.address = company.address
         existingCompany.city = company.city
@@ -38,7 +39,7 @@ class CompanyServiceImpl(
     }
 
     @Transactional
-    override fun removeCompanyById(id: Long) = companyRepository.delete(getById(id))
+    override fun removeCompanyById(id: Long) = companyRepository.delete(getCompanyById(id))
 
     private fun updateContactData(toUpdate: ContactData, existing: ContactData?) {
         if (existing == null) {

@@ -18,7 +18,11 @@ interface BaseRepository<T> {
 
 interface OrderListRepositoryPort : BaseRepository<OrderList>
 
-interface OfferRepositoryPort : BaseRepository<Offer>
+interface OfferRepositoryPort : BaseRepository<Offer> {
+    fun findByCompanyId(id: Long): Collection<Offer>
+
+    fun findByMaterialId(id: Long): Collection<Offer>
+}
 
 interface MaterialRepositoryPort : BaseRepository<Material>
 

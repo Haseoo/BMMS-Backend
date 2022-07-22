@@ -24,7 +24,12 @@ class MaterialRepositoryAdapter(repository: MaterialJpaRepository) : MaterialRep
 
 @Repository
 class OfferRepositoryAdapter(repository: OfferJpaRepository) : OfferRepositoryPort,
-    BaseRepositoryImpl<Offer>(repository)
+    BaseRepositoryImpl<Offer>(repository) {
+
+    private val offerJpaRepository: OfferJpaRepository = repository
+    override fun findByCompanyId(id: Long): Collection<Offer> = offerJpaRepository.findByCompany_Id(id)
+    override fun findByMaterialId(id: Long): Collection<Offer> = offerJpaRepository.findByMaterial_Id(id)
+}
 
 @Repository
 class OrderListRepositoryAdapter(repository: OrderListJpaRepository) : OrderListRepositoryPort,
