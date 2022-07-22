@@ -4,7 +4,7 @@ import com.github.haseoo.bmms.repository.adapter.BaseRepository
 import com.github.haseoo.bmms.util.unwrap
 import org.springframework.data.jpa.repository.JpaRepository
 
-internal abstract class BaseRepositoryImpl<T : Any>(private val repository: JpaRepository<T, Long>) :
+abstract class BaseRepositoryImpl<T : Any>(private val repository: JpaRepository<T, Long>) :
     BaseRepository<T> {
 
     override fun findAll(): Collection<T> = repository.findAll()

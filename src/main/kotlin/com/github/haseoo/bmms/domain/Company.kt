@@ -7,6 +7,7 @@ data class Company(
     @field:Id
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long?,
+    var name: String,
     var address: String,
     var city: String?,
     var voivodeship: String?,

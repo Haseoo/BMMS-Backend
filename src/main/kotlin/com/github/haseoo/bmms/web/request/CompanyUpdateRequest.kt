@@ -8,6 +8,8 @@ import javax.validation.constraints.NotBlank
 data class CompanyUpdateRequest
 @JsonCreator
 constructor(
+    @field:NotBlank(message = "Provide company name")
+    val name: String,
     @field:NotBlank(message = "Provide company address")
     val address: String,
     @field:NotBlank(message = "Provide company city")

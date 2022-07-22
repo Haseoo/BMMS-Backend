@@ -15,17 +15,17 @@ import com.github.haseoo.bmms.repository.jpa.OrderListJpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-private class CompanyRepositoryAdapter(repository: CompanyJpaRepository) : CompanyRepositoryPort,
+class CompanyRepositoryAdapter(repository: CompanyJpaRepository) : CompanyRepositoryPort,
     BaseRepositoryImpl<Company>(repository)
 
 @Repository
-private class MaterialRepositoryAdapter(repository: MaterialJpaRepository) : MaterialRepositoryPort,
+class MaterialRepositoryAdapter(repository: MaterialJpaRepository) : MaterialRepositoryPort,
     BaseRepositoryImpl<Material>(repository)
 
 @Repository
-private class OfferRepositoryAdapter(repository: OfferJpaRepository) : OfferRepositoryPort,
+class OfferRepositoryAdapter(repository: OfferJpaRepository) : OfferRepositoryPort,
     BaseRepositoryImpl<Offer>(repository)
 
 @Repository
-private class OrderListRepositoryAdapter(repository: OrderListJpaRepository) : OrderListRepositoryPort,
+class OrderListRepositoryAdapter(repository: OrderListJpaRepository) : OrderListRepositoryPort,
     BaseRepositoryImpl<OrderList>(repository)

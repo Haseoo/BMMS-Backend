@@ -5,9 +5,10 @@ import com.github.haseoo.bmms.exception.NotFoundException
 import com.github.haseoo.bmms.repository.adapter.MaterialRepositoryPort
 import com.github.haseoo.bmms.service.MaterialService
 import org.springframework.stereotype.Service
+import javax.transaction.Transactional
 
 @Service
-private class MaterialServiceImpl
+class MaterialServiceImpl
     (
     private val materialRepository: MaterialRepositoryPort
 ) : MaterialService {
@@ -16,6 +17,7 @@ private class MaterialServiceImpl
     override fun findMaterialById(id: Long): Material =
         materialRepository.findById(id) ?: throw NotFoundException("Material", id)
 
+    @Transactional
     override fun addMaterial(material: Material): Material = materialRepository.save(material)
 
     override fun updateMaterial(material: Material): Material {
@@ -24,5 +26,6 @@ private class MaterialServiceImpl
         return materialRepository.save(existingMaterial)
     }
 
+    @Transactional
     override fun removeMaterialById(materialId: Long) = materialRepository.delete(findMaterialById(materialId))
 }
