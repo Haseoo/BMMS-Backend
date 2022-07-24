@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 import javax.transaction.Transactional
 
 @Service
-class OrderListServiceImpl(val orderListRepositoryPort: OrderListRepositoryPort) : OrderListService {
+class OrderListServiceImpl(private val orderListRepositoryPort: OrderListRepositoryPort) : OrderListService {
     override fun getOrderLists(): Collection<OrderList> = orderListRepositoryPort.findAll()
 
     override fun getOrderListById(orderListId: Long): OrderList =
@@ -35,7 +35,7 @@ class OrderListServiceImpl(val orderListRepositoryPort: OrderListRepositoryPort)
     @Transactional
     override fun addOrderListPosition(orderListId: Long, offerId: Long, orderPosition: OrderPosition) {
         val orderList = getOrderListById(orderListId)
-        val existingPosition = orderList.positions.find { it.offer.id == offerId }
+        val existingPosition = orderList.positions.find { it.offer?.id == offerId }
         existingPosition?.let { existingPosition.quantity += orderPosition.quantity }
             ?: run { orderList.positions += orderPosition }
         orderList.lastModification = LocalDateTime.now()

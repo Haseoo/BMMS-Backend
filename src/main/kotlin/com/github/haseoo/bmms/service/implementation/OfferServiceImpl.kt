@@ -12,9 +12,9 @@ import javax.transaction.Transactional
 
 @Service
 class OfferServiceImpl(
-    val offerRepositoryPort: OfferRepositoryPort,
-    val materialService: MaterialService,
-    val companyService: CompanyService
+    private val offerRepositoryPort: OfferRepositoryPort,
+    private val materialService: MaterialService,
+    private val companyService: CompanyService
 ) : OfferService {
     override fun getOfferById(offerId: Long) =
         offerRepositoryPort.findById(offerId) ?: throw NotFoundException("Offer", offerId)
