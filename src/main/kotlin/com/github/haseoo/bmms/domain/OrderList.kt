@@ -9,7 +9,8 @@ data class OrderList(
     @field:GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long?,
     var name: String,
-    var lastModification: LocalDateTime,
+    @field:Column(nullable = false)
+    var lastModification: LocalDateTime?,
     @field:OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.ALL], orphanRemoval = true)
     @field:JoinColumn(name = "ORDER_LIST_ID")
     var positions: List<OrderPosition>

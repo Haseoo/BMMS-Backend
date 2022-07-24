@@ -5,17 +5,17 @@ import com.github.haseoo.bmms.exception.NotFoundException
 import com.github.haseoo.bmms.repository.adapter.OfferRepositoryPort
 import com.github.haseoo.bmms.service.CompanyService
 import com.github.haseoo.bmms.service.MaterialService
-import com.github.haseoo.bmms.service.OrderService
+import com.github.haseoo.bmms.service.OfferService
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 import javax.transaction.Transactional
 
 @Service
-class OrderServiceImpl(
+class OfferServiceImpl(
     val offerRepositoryPort: OfferRepositoryPort,
     val materialService: MaterialService,
     val companyService: CompanyService
-) : OrderService {
+) : OfferService {
     override fun getOfferById(offerId: Long) =
         offerRepositoryPort.findById(offerId) ?: throw NotFoundException("Offer", offerId)
 

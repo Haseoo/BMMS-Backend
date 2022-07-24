@@ -2,7 +2,7 @@ package com.github.haseoo.bmms.service
 
 import com.github.haseoo.bmms.domain.Offer
 
-interface OrderService {
+interface OfferService {
 
     fun getOfferById(offerId: Long): Offer
 

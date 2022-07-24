@@ -9,7 +9,7 @@ data class OrderPosition(
     var id: Long?,
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "OFFER_ID")
-    val offer: Offer,
+    val offer: Offer?,
     @field:Column(nullable = false)
     var quantity: Int
 )

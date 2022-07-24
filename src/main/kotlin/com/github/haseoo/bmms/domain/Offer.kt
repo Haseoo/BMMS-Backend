@@ -11,14 +11,14 @@ data class Offer(
     var id: Long?,
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "COMPANY_ID")
-    var company: Company,
+    var company: Company?,
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "MATERIAL_ID")
-    var material: Material,
+    var material: Material?,
     @field:Column(nullable = false, scale = 10, precision = 2)
     var price: BigDecimal,
     var unit: String,
     var comments: String?,
     @field:Column(nullable = false)
-    var lastModification: LocalDateTime,
+    var lastModification: LocalDateTime?,
 )
