@@ -1,6 +1,7 @@
 package com.github.haseoo.bmms.web.controller
 
 import com.github.haseoo.bmms.service.MaterialService
+import com.github.haseoo.bmms.service.OfferService
 import com.github.haseoo.bmms.web.domainToResponse
 import com.github.haseoo.bmms.web.request.MaterialRequest
 import com.github.haseoo.bmms.web.requestToDomain
@@ -12,7 +13,8 @@ import javax.validation.Valid
 @RestController
 @RequestMapping("api/v1/material")
 class MaterialController(
-    val materialService: MaterialService
+    private val materialService: MaterialService,
+    private val offerService: OfferService
 ) {
     @GetMapping
     fun getAll() = ResponseEntity.ok(materialService.findAllMaterials().map { domainToResponse(it) })
@@ -37,4 +39,8 @@ class MaterialController(
         materialService.removeMaterialById(id)
         return ResponseEntity.noContent().build()
     }
+
+    @GetMapping("/{id}/offers")
+    fun getMaterialOffers(@PathVariable id: Long) =
+        ResponseEntity.ok(offerService.getMaterialOffers(id).map { domainToResponse(it) })
 }

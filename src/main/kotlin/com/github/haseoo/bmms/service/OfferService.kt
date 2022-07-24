@@ -6,7 +6,7 @@ interface OfferService {
 
     fun getOfferById(offerId: Long): Offer
 
-    fun addOrder(materialId: Long, companyId: Long, offer: Offer): Offer
+    fun addOffer(materialId: Long, companyId: Long, offer: Offer): Offer
 
     fun updateOffer(offer: Offer)
 

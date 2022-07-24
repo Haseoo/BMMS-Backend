@@ -13,9 +13,9 @@ interface CompanyService {
 
     fun updateCompany(
         company: Company,
-        contactDataToAdd: List<ContactData>,
-        contactDataToUpdate: List<ContactData>,
-        contactDataIdToDelete: List<Long>
+        contactDataToAdd: Collection<ContactData>,
+        contactDataToUpdate: Collection<ContactData>,
+        contactDataIdToDelete: Collection<Long>
     )
 
     fun removeCompanyById(id: Long)

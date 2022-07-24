@@ -17,8 +17,8 @@ fun domainToResponse(material: Material) = MaterialResponse(
     material.specification
 )
 
-fun requestToDomain(contactDataRequest: ContactDataRequest) = ContactData(
-    null,
+fun requestToDomain(contactDataRequest: ContactDataRequest, id: Long? = null) = ContactData(
+    id,
     contactDataRequest.description,
     contactDataRequest.representativeNameAndSurname,
     contactDataRequest.emailAddress,

@@ -20,7 +20,7 @@ class OfferServiceImpl(
         offerRepositoryPort.findById(offerId) ?: throw NotFoundException("Offer", offerId)
 
     @Transactional
-    override fun addOrder(materialId: Long, companyId: Long, offer: Offer): Offer {
+    override fun addOffer(materialId: Long, companyId: Long, offer: Offer): Offer {
         offer.material = materialService.getMaterialById(materialId)
         offer.company = companyService.getCompanyById(companyId)
         offer.lastModification = LocalDateTime.now()
