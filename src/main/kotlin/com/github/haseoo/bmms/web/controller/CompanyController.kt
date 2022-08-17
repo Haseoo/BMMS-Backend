@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
 @RestController
-@RequestMapping("api/v1/material")
+@RequestMapping("api/v1/company")
 class CompanyController(
     private val companyService: CompanyService,
     private val offerService: OfferService
